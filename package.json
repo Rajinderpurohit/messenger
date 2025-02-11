@@ -1,7 +1,7 @@
 {
   "name": "chat",
   "version": "1.0.0",
-  "description": "Chat App for Zoaic",
+  "description": "Chat App",
   "main": "index.js",
   "scripts": {
     "test": "node index.js"

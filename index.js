@@ -27,13 +27,7 @@ app.use(express.json());
 //     database: 'zoaic_newdb2020'
 // });
 
-const db = mysql.createPool({
-    host: '204.155.156.216',
-    user: 'stagingmate4trad_msg',         // Use your database username
-    password: '=mUg}meTRUGY', // Use your database password
-    database: 'stagingmate4trad_messenger',
-    port: 3306
-});
+
 // SQL Table Creation
 const initializeDatabase = async () => {
     await db.query(`
