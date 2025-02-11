@@ -1,0 +1,442 @@
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+}
+#root {
+  /* margin: auto; */
+  width: 100%;
+  height: 100vh;
+  /* text-align: center; */
+}
+.pad-0 {
+  padding: 0 !important;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* .body-bar {
+  margin:auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:10px;
+}
+.bodycontent {
+  min-width:50%;
+}
+.chathis {
+  max-height: 350px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+input {
+  border: 1px solid #342e2e52;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+button {
+  border: 2px solid #0d649e;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 700;
+    color: #0d649e;
+    width: 100%;
+}
+button:hover {
+    color: #fff;
+    background-color:  #0d649e;
+    box-shadow: 0px 0px 10px #aaa;
+}
+.send-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 100%;
+  max-width: 40px;
+  position: absolute;
+  right: 0px;
+}
+.msg-bar-div{
+  position: relative;
+}
+.send-icon {
+  vertical-align: middle;
+} */
+
+/* Initial state of the sidebar (off-screen on mobile) */
+.sidebar {
+  left: 0; 
+}
+
+@media screen and (max-width: 992px) {
+  .sidebar {
+    position: fixed;
+    max-width: 300px;
+    top: 0;
+    left: -100%; /* Initially hide the sidebar off-screen */
+    height: 100%;
+    transition: left 0.3s ease-in-out; /* Add transition effect for sliding */
+    z-index: 1050; /* Make sure the sidebar is above other content */
+  }
+  
+  /* When sidebar is open, slide it in */
+  .sidebar-open {
+    left: 0; /* Move sidebar into view */
+  }
+
+  .msg-input {
+    width: 100% !important;
+  }
+
+}
+
+.welcome_banner {
+  background-color: #282c34;
+  width: 100%;
+  height: 90vh;
+}
+.profile_pic {
+  height:48px;
+  width:48px;
+}
+.dpic-40 {
+  height:40px;
+  width:40px;
+}
+.date-chip {
+  background-color: #eee;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.tiny-font {
+  font-size: 0.75rem !important;
+}
+.b-word{
+  word-break: break-all;
+}
+.cs-link {
+  color: #0d649e !important;
+}
+.cs-link:hover {
+  text-decoration: underline;
+}
+.msg-input {
+  position: absolute;
+  bottom: 0;
+  width: 75%;
+}
+.attachment-icon {
+  background-color: transparent;
+  margin-right: 15px;
+  font-size: 30px;
+  display: inline;
+  box-sizing: border-box;
+}
+
+/* Add some style for overlay when sidebar is visible */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Transparent black background */
+  z-index: 1040; /* Overlay should be below the sidebar */
+}
+.cs-ul li:hover {
+  cursor: pointer;
+  background-color: #eee;
+  transition: background-color 0.2s ease-in;
+}
+.cs-ul li {
+  cursor: pointer;
+  border-radius: 10px;
+  margin-bottom:5px;
+}
+.cs-ul {
+  padding:5px;
+  overflow: hidden;
+  overflow-y: auto;
+  height: calc(-130px + 100vh);
+}
+.msg-chip {
+  overflow: hidden;
+  max-width: 70%;
+  overflow-wrap: break-word;
+}
+.last-msg {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.navbar-close {
+  font-size: 30px;
+}
+.add-chat {
+  background: #4CAF50;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  padding-top: 11px;
+  border-radius: 100%;
+  font-weight: 900;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  transition: transform 0.5s ease-in-out;
+}
+.add-chat:hover { color:#fff;box-shadow:  inset 0px 0px 13px 5px #2125294d; }
+.add-chat-expand {
+  transform: scale(54.5);
+  z-index: 1;
+}
+.fs-10 {
+  font-size: 10px !important;
+}
+.send-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 100%;
+  max-width: 40px;
+  /* position: absolute; */
+  /* right: 7px; */
+  /* top: 5px; */
+}
+.msg-input-box {
+  border:0 !important;
+  background: #eee;
+}
+.bg-theme {
+  background-color: #4CAF50 !important;
+}
+/* Modal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the modal is above all other content */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.modal-close:hover {
+  color: #ff0000;
+}
+
+
+.chat-type-toggle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.chat-type-toggle .tg-active {
+  background-color: #4CAF50;
+}
+.chat-type-toggle button {
+  padding: 8px 12px;
+  background-color: #aaa;
+  color: white;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.chat-type-toggle button:hover {
+  background-color: #45a049;
+}
+
+.user-list {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  max-height: 205px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.user-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.user-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.selected {
+  background-color: #d3ffd3;
+}
+.selected::after {
+  content: " ";
+  height: 15px;
+  width: 7px;
+  border-bottom: 3px solid green;
+  border-right: 3px solid green;
+  transform: rotate(45deg);
+  /* display: inline-block; */
+  float: right;
+  margin-right: 10px;
+}
+.group-users-list {
+  display: none;
+}
+
+.create-chat-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.create-chat-btn:hover {
+  background-color: #45a049;
+}
+
+.loader {
+  width: fit-content;
+  font-size: 40px;
+  font-family: system-ui,sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #0000;
+  -webkit-text-stroke: 1px #1b3b1c;
+  background: conic-gradient(#1b3b1c 0 0) 0/0% 100% no-repeat text;
+  animation: l1 1s linear infinite;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+.loader:before {
+
+  /* if you want to add something in side the loader i.e permanent text */
+  content: "";
+}
+@keyframes l1 {
+  to{background-size: 120% 100%}
+}
+.iconic-text {
+  width: fit-content;
+  font-size: 40px;
+  font-family: system-ui,sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #0000;
+  -webkit-text-stroke: 1px #1b3b1c;
+  background: conic-gradient(#1b3b1c 0 0) 0/0% 100% no-repeat text;
+}
+.input-file {
+  display: none;
+  cursor: pointer;
+}
+.upload-area {
+  cursor: pointer;
+}
+.upload {
+  padding-top: 8px;
+  margin-right: 5px;
+}
+.attachment-container {
+  height:500px;
+  background-color: #828181;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.upload-area-drag {
+  width: 100%;
+  max-width: 400px;
+  height: 150px;
+  background: #f9f9f9;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.upload-area-drag:hover {
+  background: #f0f0f0;
+}
+
+.upload-area-drag.dragging {
+  background: #e0f7fa;
+  border-color: #00acc1;
+}
